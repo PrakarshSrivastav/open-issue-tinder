@@ -23,12 +23,11 @@ export default function IssueCard({ issue }: { issue: Issue }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Add useEffect to reset state when issue changes
   useEffect(() => {
     setMergeStats(null);
     setIsLoading(false);
     setError(null);
-  }, [issue.repo.fullName]); // Dependency array: run effect when issue's full name changes
+  }, [issue.repo.fullName]);
 
   const difficulty = issue.labels
     .map((l) => l.toLowerCase())
@@ -82,21 +81,18 @@ export default function IssueCard({ issue }: { issue: Issue }) {
 
   return (
     <article className="issue-card">
-      {/* HEADER: title + repo */}
       <header className="issue-header">
         <div className="issue-header-text">
           <h3 className="issue-title">{issue.title}</h3>
           <p className="issue-repo">{issue.repo.fullName}</p>
         </div>
 
-        {/* Stars pill */}
         <div className="issue-stars-pill">
           <VscStarFull size={16} />
           <span>{issue.repo.stars}</span>
         </div>
       </header>
 
-      {/* META ROW */}
       <section className="issue-meta-row">
         <div className="issue-meta-block">
           <span className="issue-meta-label">Language</span>
@@ -126,7 +122,6 @@ export default function IssueCard({ issue }: { issue: Issue }) {
         )}
       </section>
 
-      {/* TAGS */}
       {issue.labels.length > 0 && (
         <section className="issue-tags-section">
           <span className="issue-meta-label">Tags</span>
@@ -140,7 +135,6 @@ export default function IssueCard({ issue }: { issue: Issue }) {
         </section>
       )}
 
-      {/* FOOTER: author + CTA */}
       <footer className="issue-footer">
         <div className="issue-author">
           {issue.user.avatarUrl && (
@@ -171,17 +165,13 @@ export default function IssueCard({ issue }: { issue: Issue }) {
         </div>
 
         <div className="merge-stats-container">
-            {/* Only show button if mergeStats is null and not currently loading */}
             {!mergeStats && !isLoading && (
                 <button onClick={handleShowMergeRate} disabled={isLoading}>
                 Show 90-day Merge Rate
                 </button>
             )}
-            {/* Show loading message if loading */}
             {isLoading && <p>Loading...</p>}
-            {/* Show error message if error */}
             {error && <p className="error-message">{error}</p>}
-            {/* Show merge stats if available */}
             {mergeStats && (
                 <div className="merge-stats-details">
                     <p>

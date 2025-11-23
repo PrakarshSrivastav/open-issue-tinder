@@ -1,11 +1,11 @@
-import "./../styles/Filters.css";
-import { VscGithubInverted } from "react-icons/vsc";
+import { VscRepo } from 'react-icons/vsc';
+import '../styles/Filters.css';
 
 interface Props {
   language: string;
   onLanguageChange: (l: string) => void;
-  sort: "asc" | "desc";
-  onSortChange: (s: "asc" | "desc") => void;
+  sort: 'asc' | 'desc';
+  onSortChange: (s: 'asc' | 'desc') => void;
 }
 
 export default function Filters({
@@ -15,34 +15,39 @@ export default function Filters({
   onSortChange,
 }: Props) {
   const languages = [
-    "JavaScript",
-    "TypeScript",
-    "Python",
-    "Java",
-    "C#",
-    "C++",
-    "Go",
-    "Ruby",
-    "PHP",
-    "Swift",
-    "Kotlin",
-    "Rust",
-    "Dart",
-    "HTML",
-    "CSS",
+    'JavaScript',
+    'TypeScript',
+    'Python',
+    'Java',
+    'C#',
+    'C++',
+    'Go',
+    'Ruby',
+    'PHP',
+    'Swift',
+    'Kotlin',
+    'Rust',
+    'Dart',
+    'HTML',
+    'CSS',
   ];
 
   return (
-    <div className="filters">
+    <header className="filters">
       <div className="filters-header">
-        <VscGithubInverted size={40} />
+        <VscRepo size={40} className="filters-icon" aria-hidden="true" />
         <div className="filters-title">
-          <h1>Open Issue Tinder</h1>
-          <p>Swipe your next contribution</p>
+          <h1>Open-Source Issue Finder</h1>
+          <p>Discover your next contribution in seconds</p>
         </div>
       </div>
+
       <div className="filters-controls">
+        <label htmlFor="language" className="visually-hidden">
+          Programming language
+        </label>
         <select
+          id="language"
           value={language}
           onChange={(e) => onLanguageChange(e.target.value)}
         >
@@ -54,14 +59,18 @@ export default function Filters({
           ))}
         </select>
 
+        <label htmlFor="sort" className="visually-hidden">
+          Sort order
+        </label>
         <select
+          id="sort"
           value={sort}
-          onChange={(e) => onSortChange(e.target.value as "asc" | "desc")}
+          onChange={(e) => onSortChange(e.target.value as 'asc' | 'desc')}
         >
-          <option value="desc">Stars: High → Low</option>
-          <option value="asc">Stars: Low → High</option>
+          <option value="desc">Most starred</option>
+          <option value="asc">Least starred</option>
         </select>
       </div>
-    </div>
+    </header>
   );
 }

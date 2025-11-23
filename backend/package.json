@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "tsc",
+    "build": "prisma migrate deploy && tsc",
+    "postinstall": "prisma generate",
     "start": "node dist/server.js",
     "db:seed": "ts-node src/scripts/seed.ts",
+    "db:clear": "ts-node src/scripts/clearIssues.ts",
     "test": "jest"
   },
   "keywords": [],

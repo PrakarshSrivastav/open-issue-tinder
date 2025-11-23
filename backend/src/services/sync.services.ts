@@ -3,7 +3,7 @@ import { GitHubService } from "./github.service";
 
 export class SyncService {
   static async syncGoodFirstIssues(perPage: number = 50) {
-    const searchResult = await GitHubService.searchGoodFirstIssues({ perPage });
+    const searchResult = await GitHubService.searchGoodFirstIssues({ perPage, sortByStars: "asc" }); // Pass sortByStars: "asc"
     const issues = searchResult.items;
 
     const uniqueRepoUrls = Array.from(

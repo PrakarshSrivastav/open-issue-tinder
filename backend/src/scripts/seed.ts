@@ -7,7 +7,7 @@ import prisma from "../db/prisma";
 const seedDatabase = async () => {
   console.log("Seeding database...");
 
-  const languages = ["JavaScript", "Python", "Java", "TypeScript", "Go", "Rust", "C++", "C#"];
+  const languages = ["JavaScript", "Python", "Java", "TypeScript", "Go", "Rust", "C++", "C#", "CSS"];
 
   for (const language of languages) {
     console.log(`Fetching issues for ${language}...`);

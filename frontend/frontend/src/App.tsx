@@ -52,7 +52,6 @@ export default function App() {
 
   return (
     <div className={`App ${dark ? "App-dark" : ""}`}>
-      <div className="side-decoration"></div>
       <main className="main-content">
         <header className="top-bar">
           <div className="top-bar-right">
@@ -82,7 +81,6 @@ export default function App() {
           <SwipeDeck
             issues={issues}
             onSwipe={(dir, issue) => {
-              // later: save swipe to DB/favorites
               console.log("Swiped", dir, "on", issue.repo.fullName);
             }}
             loadMore={loadMore}
@@ -108,8 +106,6 @@ export default function App() {
           <p>No issues found. Try different filters.</p>
         )}
       </main>
-      <div className="side-decoration"></div>
     </div>
   );
 }
-
