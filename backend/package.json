@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "prisma migrate deploy && tsc",
-    "postinstall": "prisma generate",
+    "build": "npx prisma migrate deploy && tsc",
+    "postinstall": "npx prisma generate",
     "start": "node dist/server.js",
     "db:seed": "ts-node src/scripts/seed.ts",
     "db:clear": "ts-node src/scripts/clearIssues.ts",
