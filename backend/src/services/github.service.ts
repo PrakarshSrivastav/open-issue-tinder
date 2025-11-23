@@ -85,6 +85,7 @@ export class GitHubService {
   static async searchGoodFirstIssues(params?: {
     perPage?: number;
     language?: string;
+    sortByStars?: "asc" | "desc"; // Added sortByStars parameter
   }): Promise<GitHubSearchResponse> {
     const perPage = params?.perPage ?? 10;
 
@@ -98,8 +99,10 @@ export class GitHubService {
       queryParts.push(`language:${params.language}`);
     }
 
+    const sortParam = params?.sortByStars ? `&sort=stars&order=${params.sortByStars}` : ''; // Add sort parameter
+
     const q = encodeURIComponent(queryParts.join(" "));
-    const url = `https://api.github.com/search/issues?q=${q}&per_page=${perPage}`;
+    const url = `https://api.github.com/search/issues?q=${q}&per_page=${perPage}${sortParam}`; // Include sortParam in URL
 
     const headers: Record<string, string> = {
       Accept: "application/vnd.github+json",

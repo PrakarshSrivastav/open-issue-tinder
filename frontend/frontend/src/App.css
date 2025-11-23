@@ -36,12 +36,7 @@ body {
   width: 100%;
 }
 
-.side-decoration {
-  width: 100px;
-  background-color: var(--royal-blue);
-  opacity: 0.2;
-  filter: blur(100px);
-}
+
 
 .top-bar {
   display: flex;

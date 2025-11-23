@@ -8,6 +8,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "db:seed": "ts-node src/scripts/seed.ts",
+    "db:clear": "ts-node src/scripts/clearIssues.ts",
     "test": "jest"
   },
   "keywords": [],

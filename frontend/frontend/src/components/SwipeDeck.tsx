@@ -39,7 +39,6 @@ export default function SwipeDeck({
 
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
 
-    // pre-fetch when we're close to the bottom of the stack
     if (hasMore && currentIndex < 5) {
       loadMore();
     }
