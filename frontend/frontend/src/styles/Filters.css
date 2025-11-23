@@ -1,0 +1,44 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.filters-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.filters-title h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.filters-title p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.filters-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.filters select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.filters select:hover {
+  border-color: var(--royal-blue);
+}

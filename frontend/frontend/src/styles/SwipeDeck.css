@@ -1,0 +1,84 @@
+.swipe-container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+
+/* Top info bar */
+
+.swipe-topbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.swipe-counter {
+  font-weight: 500;
+}
+
+.swipe-hint {
+  font-style: italic;
+}
+
+/* Card wrapper */
+
+.swipe-card-wrapper {
+  width: 100%;
+}
+
+/* Buttons */
+
+.swipe-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 4px;
+}
+
+.swipe-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.swipe-button--no {
+  color: #ef4444;
+}
+
+.swipe-button--yes {
+  color: #22c55e;
+}
+
+.swipe-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
+  opacity: 0.95;
+}
+
+@media (max-width: 640px) {
+  .swipe-buttons {
+    gap: 20px;
+  }
+
+  .swipe-button {
+    width: 54px;
+    height: 54px;
+    font-size: 1.6rem;
+  }
+}

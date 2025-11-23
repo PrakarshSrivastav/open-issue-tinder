@@ -1,0 +1,15 @@
+.dark-toggle {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s, transform 0.15s ease;
+}
+
+.dark-toggle:hover {
+  background: var(--hover);
+  transform: translateY(-2px);
+}

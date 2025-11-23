@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-swipeable-cards": "^1.0.6",
+    "react-tinder-card": "^1.6.4"
+  }
+}
