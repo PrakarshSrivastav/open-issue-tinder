@@ -1,4 +1,5 @@
-import prisma from "../../prisma/prisma.config";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 async function clearIssues() {
   await prisma.issue.deleteMany({});

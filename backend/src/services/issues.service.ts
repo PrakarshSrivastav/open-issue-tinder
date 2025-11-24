@@ -1,3 +1,4 @@
+// @ts-ignore: Could not find a declaration file for module '../../prisma/prisma.config'
 import prisma from "../../prisma/prisma.config";
 import { Issue as IssueType } from "../types/issue";
 
@@ -39,7 +40,7 @@ export class IssuesService {
       prisma.issue.count({ where }),
     ]);
 
-    const items: IssueType[] = rows.map((row) => ({
+    const items: IssueType[] = rows.map((row: { githubId: any; number: any; title: any; htmlUrl: any; state: string; githubCreatedAt: { toISOString: () => any; }; githubUpdatedAt: { toISOString: () => any; }; comments: any; labels: any; author: any; authorUrl: any; authorAvatarUrl: any; repo: { name: any; fullName: any; htmlUrl: any; }; language: any; repoStars: any; }) => ({
       id: Number(row.githubId),
       issueNumber: row.number,
       title: row.title,

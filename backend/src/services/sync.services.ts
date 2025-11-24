@@ -1,4 +1,5 @@
-import prisma from "../../prisma/prisma.config";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const prisma: import("@prisma/client").PrismaClient = require("../../prisma/prisma.config");
 import { GitHubService } from "./github.service";
 
 export class SyncService {
@@ -66,7 +67,6 @@ export class SyncService {
         },
         create: {
           githubId: BigInt(ghIssue.id),
-          repoId: repo.id,
           number: ghIssue.number,
           title: ghIssue.title,
           htmlUrl: ghIssue.html_url,
@@ -76,7 +76,11 @@ export class SyncService {
           language: langLower,
           repoStars: ghRepo.stargazers_count,
           githubCreatedAt: new Date(ghIssue.created_at),
-          githubUpdatedAt: new Date(ghIssue.updated_at)
+          githubUpdatedAt: new Date(ghIssue.updated_at),
+          author: (ghIssue.user as any)?.login,
+          authorUrl: (ghIssue.user as any)?.html_url,
+          authorAvatarUrl: (ghIssue.user as any)?.avatar_url,
+          repo: { connect: { id: repo.id } }
         }
       });
     }
