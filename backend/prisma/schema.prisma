@@ -14,41 +14,31 @@ model Repo {
   htmlUrl   String
   language  String?
   stars     Int      @default(0)
-
-  issues    Issue[]
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  issues    Issue[]
 }
 
 model Issue {
   id              Int      @id @default(autoincrement())
   githubId        BigInt   @unique
-
   repoId          Int
-  repo            Repo     @relation(fields: [repoId], references: [id])
-
   number          Int
   title           String
-
-  author          String
-  authorUrl       String
-  authorAvatarUrl String
-
   htmlUrl         String
   state           String
   comments        Int      @default(0)
-
-  labels          String[] // Stored label names
-
-  language        String?  // Lowercase repo language
+  labels          String[]
+  language        String?
   repoStars       Int      @default(0)
-
   githubCreatedAt DateTime
   githubUpdatedAt DateTime
-
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
+  author          String
+  authorAvatarUrl String
+  authorUrl       String
+  repo            Repo     @relation(fields: [repoId], references: [id])
 
   @@index([language])
   @@index([repoStars])
