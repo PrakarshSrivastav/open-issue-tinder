@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { GitHubService } from "../services/github.service";
-import prisma from "../db/prisma";
+import prisma from "../../prisma/prisma";
 
 const seedDatabase = async () => {
   console.log("Seeding database...");

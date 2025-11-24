@@ -1,4 +1,4 @@
-import prisma from "../db/prisma";
+import prisma from "../../prisma/prisma";
 import { GitHubService } from "./github.service";
 
 export class SyncService {
