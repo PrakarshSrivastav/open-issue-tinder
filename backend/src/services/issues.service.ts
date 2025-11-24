@@ -1,4 +1,4 @@
-import prisma from "../../prisma/prisma";
+import prisma from "../../prisma/prisma.config";
 import { Issue as IssueType } from "../types/issue";
 
 interface GetIssuesParams {

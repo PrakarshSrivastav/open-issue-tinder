@@ -1,4 +1,4 @@
-import prisma from "../../prisma/prisma";
+import prisma from "../../prisma/prisma.config";
 import { GitHubService } from "./github.service";
 
 export class SyncService {
